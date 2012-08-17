@@ -3,7 +3,7 @@ myViewModel = {
 		mood : ko.observable('happy'),
 		getMoody: ko.observable(false),
 		multiType : ko.observable('0'),
-		templateTypes: ['man','monkey','monster'],
+		templateTypes: ['man','monkey','monster','mushroom'],
 		moodTypes : ['happy','sad','angry','jealous','sleepy','hungry', 'eeeeeevil!!'],
 		members : [
 			{
@@ -30,5 +30,5 @@ myViewModel = {
 	}
 	
 	jQuery(function($) {
-    ko.applyBindings(myViewModel);
-  });
+		ko.applyBindings(myViewModel);
+ 	 });

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Knockout JS Advanced Templating</title>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/knockout-2.1.0.js"></script>
+<script>
+	$(document).ready(function() {
+	
+var demo = function ($, ko) {
+		rootVM = {
+			name : ko.observable('Vernon'),
+			age : ko.observable(54)
+		};
+		ko.applyBindings(rootVM);
+	}(jQuery, ko);
+});
+</script>
+</head>
+
+<body>
+	<div data-bind="text:$root.name"></div>
+    Age: <span data-bind="text:age"></span><br />
+    <input type="text" data-bind="value: age" />
+</body>
+</html>
