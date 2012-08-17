@@ -23,7 +23,7 @@ myViewModel = {
 			},
 			{
 				name: 'Alvin',
-				type: ko.observable('man'),
+				type: ko.observable('mushroom'),
 				mood : ko.observable('jealous')
 			}
 		]
