@@ -1,0 +1,696 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/knockout-2.1.0.js"></script>
+<script src="js/example1.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Knockout Templating</title>
+<style>
+*{font-family:Arial,Verdana, Geneva, sans-serif; font-size:13px; text-align:center;}
+.mainControls {
+    line-height: 28px;
+}
+.wrapper {
+    overflow: hidden;
+}
+.subWrapper{margin:0 auto;}
+.template{float:left; margin: 0 6%;}
+table{height:150px; width:150px; margin:10px auto;}
+td{min-width:10px; min-height:1px}
+.black{background:#000;}
+.name {
+    display: block;
+    font-size: 24px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+</style>
+</head>
+
+<body>
+<div class="mainControls">
+	I am a:
+    <select data-bind="options:templateTypes,value:type"></select><br />
+    <input type="radio" name="multi" data-bind="checked: multiType" value="0" />Go with the flow...
+    <br />
+    <input type="radio" name="multi" data-bind="checked: multiType" value="1" />Do your own thing!
+    <br />
+    <span data-bind="visible: multiType() == '1'"><input type="checkbox" data-bind="checked: getMoody" name="moodBox"/>Get moody!</span>
+</div>
+<div data-bind="foreach: members" class="wrapper">
+	<div data-bind="template: {name: $root.type()}, visible: $root.multiType() == '0'" class="template"></div>
+	<div data-bind="template: {name: type()}, visible: $root.multiType() == '1'" class="template"></div>
+</div>
+<script type="text/html" id="man">
+	<div class="subWrapper">
+		<table border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td ></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td ></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td ></td>
+			<td class="black"></td>
+			<td ></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td ></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td ></td>
+			<td ></td>
+			<td ></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td ></td>
+			<td ></td>
+			<td ></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		  </tr>
+		</table>
+		<!-- ko template: {name: 'memberValues'}-->
+		<!-- /ko -->
+	</div>
+</script>
+<script type="text/html" id="monkey">
+	<div class="subWrapper">
+		<table border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+			<td ></td>
+			<td></td>
+			<td ></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td ></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td ></td>
+			<td class="black"></td>
+			<td ></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td ></td>
+			<td class="black"></td>
+			<td ></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td ></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td ></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td ></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td ></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td ></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td ></td>
+			<td></td>
+		  </tr>
+		</table>
+		<!-- ko template: {name: 'memberValues'}-->
+		<!-- /ko -->
+	</div>
+</script>
+<script type="text/html" id="monster">
+	<div class="subWrapper">
+		<table border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+			<td ></td>
+			<td></td>
+			<td ></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td ></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td ></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td ></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="black"></td>
+			<td></td>
+			<td ></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td ></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td class="black"></td>
+			<td></td>
+			<td></td>
+			<td ></td>
+			<td></td>
+		  </tr>
+		</table>
+		<!-- ko template: {name: 'memberValues'}-->
+		<!-- /ko -->
+	</div>
+
+</script>
+<script type="text/html" id="memberValues">
+		<span data-bind="text: name" class="name">Name</span> the 
+		<span data-bind="text: mood" class="mood">Mood</span>
+		<span data-bind="text: $parent.type, visible: $root.multiType() == '0'" class="type">type</span>
+		<span data-bind="visible: $root.multiType() == '1'">
+			<span data-bind="text: type" class="type">Type</span><br>
+				I am a:
+				<select data-bind="options:$root.templateTypes,value:type"></select><br>
+				<span data-bind="visible:$root.getMoody">
+					and I feel:
+					<select data-bind="options:$root.moodTypes,value:mood"></select>
+				</span>
+		</span>
+</script>
+</body>
+</html>
