@@ -6,7 +6,7 @@
     overflow: hidden;
 }
 .subWrapper{margin:0 auto;}
-.template{float:left; margin: 0 6%;}
+.template{float:left; margin: 0 7.5%;}
 table{height:150px; width:150px; margin:10px auto;}
 td{min-width:10px; min-height:1px}
 /*td{width:10px; height:10px}*/

@@ -19,7 +19,7 @@
     <br />
     <span data-bind="visible: multiType() == '1'"><input type="checkbox" data-bind="checked: getMoody" name="moodBox"/>Get moody!</span>
 </div>
-<div data-bind="foreach: members" class="wrapper">
+<div data-bind="foreach: beings" class="wrapper">
 	<div data-bind="template: {name: $root.type()}, visible: $root.multiType() == '0'" class="template"></div>
 	<div data-bind="template: {name: type()}, visible: $root.multiType() == '1'" class="template"></div>
 </div>
@@ -660,20 +660,7 @@
 	</div>
 
 </script>
-<script type="text/html" id="memberValues">
-		<span data-bind="text: name" class="name">Name</span> the 
-		<span data-bind="text: mood" class="mood">Mood</span>
-		<span data-bind="text: $parent.type, visible: $root.multiType() == '0'" class="type">type</span>
-		<span data-bind="visible: $root.multiType() == '1'">
-			<span data-bind="text: type" class="type">Type</span><br>
-				I am a:
-				<select data-bind="options:$root.templateTypes,value:type"></select><br>
-				<span data-bind="visible:$root.getMoody">
-					and I feel:
-					<select data-bind="options:$root.moodTypes,value:mood"></select>
-				</span>
-		</span>
-</script>
+
 <script type="text/html" id="mushroom">
 		<table border="0" cellspacing="0" cellpadding="0">
 		  <tr>
@@ -885,6 +872,22 @@
 		<!-- /ko -->
 	</div>
 </script>
+
+<script type="text/html" id="memberValues">
+		<span data-bind="text: name" class="name">Name</span> the 
+		<span data-bind="text: mood" class="mood">Mood</span>
+		<span data-bind="text: $parent.type, visible: $root.multiType() == '0'" class="type">type</span>
+		<span data-bind="visible: $root.multiType() == '1'">
+			<span data-bind="text: type" class="type">Type</span><br>
+				I am a:
+				<select data-bind="options:$root.templateTypes,value:type"></select><br>
+				<span data-bind="visible:$root.getMoody">
+					and I feel:
+					<select data-bind="options:$root.moodTypes,value:mood"></select>
+				</span>
+		</span>
+</script>
+
 
 </body>
 </html>

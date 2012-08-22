@@ -5,7 +5,7 @@
 <script src="js/knockout-2.1.0.js"></script>
 <script src="js/example1.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Knockout Templating</title>
+<title>Knockout Templating - Keep it in context</title>
 <link href="template.css" type="text/css" rel="stylesheet" />
 <script>
 var myViewModel =  {
@@ -19,8 +19,9 @@ var myViewModel =  {
 	<div data-bind="template: {name: 'myTemplate', data:$root.firstGuy}" class="template huge"></div>
 	<div data-bind="template: {name: 'myTemplate', data:$root.nextGuy}" class="template huge"></div>
 </div>
-<script type="text/html" id="myTemplate">This is
-	<span data-bind="text:name">This is a test.</span>
+<script type="text/html" id="myTemplate">
+	This is
+	<span data-bind="text:name">name goes here.</span>
 </script>
 
 </body>

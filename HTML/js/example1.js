@@ -1,11 +1,11 @@
 myViewModel = {
-		type : ko.observable('man'),
+		type : ko.observable('monkey'),
 		mood : ko.observable('happy'),
 		getMoody: ko.observable(false),
 		multiType : ko.observable('0'),
 		templateTypes: ['man','monkey','monster','mushroom'],
 		moodTypes : ['happy','sad','angry','jealous','sleepy','hungry', 'eeeeeevil!!'],
-		members : [
+		beings : [
 			{
 				name: 'Harvey',
 				type: ko.observable('man'),

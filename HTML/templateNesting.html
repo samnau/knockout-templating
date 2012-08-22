@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/knockout-2.1.0.js"></script>
+<script>
+var myModel = {
+		boxes : [1,2,3]
+	};
+	jQuery(function($) {
+		ko.applyBindings(myModel);
+ 	 });
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Knockout Templating - Nest within nest within nest</title>
+<link href="template.css" type="text/css" rel="stylesheet" />
+<style>
+div{border:4px solid; float: right; padding:50px; margin:5px;width: 31%;}
+
+.bigBox {
+    float: left;
+    width: 26%;
+}
+.medBox{background:#000; color:#fff;}
+.smallBox, .bigBox{background:#fff; color:#000;}
+</style>
+</head>
+
+<body>
+
+<span data-bind="template: {name:'bigBox',foreach:$root.boxes}"></span>
+
+<script type="text/html" id="bigBox">
+	<div class="bigBox">Big
+		<!-- ko template: {name:'medBox',foreach:$root.boxes}-->
+		<!-- /ko -->
+	</div>
+</script>
+<script type="text/html" id="medBox">
+	<div class="medBox">Medium
+		<!-- ko template: {name:'smallBox',foreach:$root.boxes}-->
+		<!-- /ko -->
+	</div>
+</script>
+<script type="text/html" id="smallBox">
+	<div class="smallBox">Small</div>
+</script>
+</body>
+</html>
